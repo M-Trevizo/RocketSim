@@ -1,5 +1,7 @@
 #include "Particle.h"
 
+#include <vector>
+
 Particle::Particle() {
 	mass = 1;
 	radius = 1;
@@ -12,4 +14,26 @@ Particle::Particle(double m, int r, Vector2 vel, Vector2 pos) {
 	radius = r;
 	velocity = vel;
 	position = pos;
+}
+
+std::vector<Particle> Particle::createParticles(double mass, int radius, int amount) {
+	Vector2 vel = { 0.0f, 0.0f };
+	Vector2 pos = { 10.0f, 10.0f };
+	
+	// Find the number of particles to place per row
+	// Create vector to hold particles
+	int perRow = static_cast<int>(floor(sqrt(amount)));
+	std::vector<Particle> particles;
+	
+	// Create the number of particles
+	// Positions should be in a grid shape
+	for (int i = 0; i < amount; i++) {
+		Particle particle(mass, radius, vel, pos); 
+		particles.push_back(particle);
+		pos.x += 2 * radius;
+		if (i % perRow == 0) {
+			pos.x = 10.0f;
+			pos.y += 2 * radius;
+		}
+	}
 }

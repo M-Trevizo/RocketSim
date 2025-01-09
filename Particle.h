@@ -2,10 +2,17 @@
 
 #include "raylib.h"
 
+#include <vector>
+
 class Particle {
 public:
 	Particle();
 	Particle(double m, int r, Vector2 vel, Vector2 pos);
+
+	Vector2 getVelocity() const { return velocity; }
+	Vector2 getPosition() const { return position; }
+
+	static std::vector<Particle> createParticles(double mass, int radius, int amount);
 
 private:
 	double mass;
