@@ -16,6 +16,16 @@ Particle::Particle(double m, int r, Vector2 vel, Vector2 pos) {
 	position = pos;
 }
 
+void Particle::setPosition(Vector2 newPosition) {
+	position = newPosition;
+}
+
+void Particle::setVelocity(Vector2 newVelocity) {
+	if (newVelocity.y <= 0.5) { // TODO --not really todo but this is the limit for velocity
+		velocity = newVelocity;
+	}
+}
+
 std::vector<Particle> Particle::createParticles(double mass, int radius, int amount) {
 	Vector2 vel = { 0.0f, 0.0f };
 	Vector2 pos = { 100.0f, 100.0f };
