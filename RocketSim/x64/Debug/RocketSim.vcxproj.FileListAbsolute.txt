@@ -1,3 +1,0 @@
-C:\Users\Michael\Documents\Code\C++\RocketSim\x64\Debug\raylib.dll
-C:\Users\Michael\Documents\Code\C++\RocketSim\x64\Debug\glfw3.dll
-C:\Users\Michael\Documents\Code\C++\RocketSim\RocketSim\x64\Debug\RocketSim.vcxproj.Up2Date

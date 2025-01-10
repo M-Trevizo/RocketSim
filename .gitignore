@@ -86,4 +86,4 @@
 *.scc
 
 # Visual Studio debug folder
-./RocketSim/x64/Debug/
+/RocketSim/x64/Debug/**

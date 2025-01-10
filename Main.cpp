@@ -1,12 +1,9 @@
 #include "raylib.h"
+#include "Graphics.h"
 
 int main() {
-	InitWindow(800, 600, "New Window");
+	
+	Graphics graphics;
 
-	while (!WindowShouldClose()) {
-		BeginDrawing();
-		ClearBackground(BLACK);
-		DrawText("Rocket Simulator v0.1", 400, 300, 25, WHITE);
-		EndDrawing();
-	}
+	return 0;
 }
