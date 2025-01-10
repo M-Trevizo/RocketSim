@@ -14,6 +14,9 @@ public:
 	Vector2 getVelocity() const { return velocity; }
 	Vector2 getPosition() const { return position; }
 
+	void setVelocity(Vector2 newVelocity); // TODO reminder to set velocity limit
+	void setPosition(Vector2 newPosition); 
+
 	static std::vector<Particle> createParticles(double mass, int radius, int amount);
 
 private:
