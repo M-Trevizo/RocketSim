@@ -9,6 +9,8 @@ public:
 	Particle();
 	Particle(double m, int r, Vector2 vel, Vector2 pos);
 
+	int getRadius() const { return radius; }
+	double getMass() const { return mass; }
 	Vector2 getVelocity() const { return velocity; }
 	Vector2 getPosition() const { return position; }
 
