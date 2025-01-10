@@ -87,3 +87,6 @@
 
 # Visual Studio debug folder
 /RocketSim/x64/Debug/**
+
+# Filter files
+*.vcxproj.filters
