@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "Graphics.h"
 #include "Particle.h"
+#include "Simulation.h"
 
 #include <vector>
 
@@ -15,6 +16,9 @@ Graphics::~Graphics() {
 }
 
 void Graphics::start() {
+	// Simulation
+	Simulation simulation;
+
 	// Create some particles
 	std::vector<Particle> particles = Particle::createParticles(1, 5, 100);
 	
@@ -23,9 +27,11 @@ void Graphics::start() {
 	
 	// Main game loop
 	while (!WindowShouldClose()) {
+		simulation.update(particles);
 		BeginDrawing();
 			ClearBackground(BLACK);
 			DrawText("Rocket Simulator v0.1", 10, 10, 25, WHITE);
+			DrawFPS(10, 45);
 			drawParticles(particles);
 		EndDrawing();
 	}
