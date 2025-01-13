@@ -3,13 +3,23 @@
 #include "raylib.h"
 #include "raymath.h"
 
-void Simulation::update(std::vector<Particle>& particles) {
+#include <vector>
+
+Simulation::Simulation() {
+	particles = Particle::createParticles(1, 5, 100);
+}
+
+void Simulation::update() {
+	float deltaTime = GetFrameTime();
+	
 	for (Particle& particle : particles) {
 		Vector2 vel = particle.getVelocity();
-		vel.y += gravity * GetFrameTime();
+		vel.y += gravity * deltaTime;
 		particle.setVelocity(vel);
+		
 		Vector2 pos = particle.getPosition();
-		particle.setPosition(Vector2Add(vel, pos));
+		pos.y += vel.y * deltaTime;
+		particle.setPosition(pos);
 			
 	}
 }

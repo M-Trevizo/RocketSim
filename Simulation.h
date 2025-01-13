@@ -5,11 +5,14 @@
 #include <vector>
 
 class Simulation {
-	
 public:
-	void update(std::vector<Particle>& particles);
+	Simulation();
+
+	void update();
+
+	std::vector<Particle> getParticles() const { return particles; }
 		
 private:
 	const double gravity = 9.807; // m/s^2
-
+	std::vector<Particle> particles;
 };
