@@ -9,6 +9,7 @@ public:
 	Simulation();
 
 	void update();
+	void applyGravity(Particle& particle);
 	void handleCollisions(Particle& particle);
 
 	std::vector<Particle> getParticles() const { return particles; }

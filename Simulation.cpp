@@ -10,21 +10,25 @@ Simulation::Simulation() {
 }
 
 void Simulation::update() {
-	float deltaTime = GetFrameTime();
 	
 	for (Particle& particle : particles) {
-		Vector2 vel = particle.getVelocity();
-		vel.y += gravity * deltaTime;
-		particle.setVelocity(vel);
-		
-		Vector2 pos = particle.getPosition();
-		pos.y += vel.y * deltaTime;
-		particle.setPosition(pos);
-		
+		applyGravity(particle);
 		handleCollisions(particle);
 	}
 
 	
+}
+
+void Simulation::applyGravity(Particle& particle) {
+	float deltaTime = GetFrameTime();
+	
+	Vector2 vel = particle.getVelocity();
+	vel.y += gravity * deltaTime;
+	particle.setVelocity(vel);
+
+	Vector2 pos = particle.getPosition();
+	pos.y += vel.y * deltaTime;
+	particle.setPosition(pos);
 }
 
 void Simulation::handleCollisions(Particle& particle) {
