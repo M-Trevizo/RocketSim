@@ -8,7 +8,7 @@
 Graphics::Graphics() {
 	SetConfigFlags(FLAG_MSAA_4X_HINT);
 	InitWindow(width, height, title);
-	SetTargetFPS(250);
+	SetTargetFPS(500);
 	start();
 }
 
