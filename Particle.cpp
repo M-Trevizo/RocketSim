@@ -21,9 +21,7 @@ void Particle::setPosition(Vector2 newPosition) {
 }
 
 void Particle::setVelocity(Vector2 newVelocity) {
-	if (newVelocity.y <= 0.5) { // TODO --not really todo but this is the limit for velocity
-		velocity = newVelocity;
-	}
+	velocity = newVelocity;
 }
 
 std::vector<Particle> Particle::createParticles(double mass, int radius, int amount) {

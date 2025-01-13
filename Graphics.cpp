@@ -8,6 +8,7 @@
 Graphics::Graphics() {
 	SetConfigFlags(FLAG_MSAA_4X_HINT);
 	InitWindow(width, height, title);
+	SetTargetFPS(250);
 	start();
 }
 
@@ -16,23 +17,21 @@ Graphics::~Graphics() {
 }
 
 void Graphics::start() {
-	// Simulation
+	// Init simulation
 	Simulation simulation;
-
-	// Create some particles
-	std::vector<Particle> particles = Particle::createParticles(1, 5, 100);
 	
 	// Init frame counter
 	int frameCounter = 0;
 	
 	// Main game loop
 	while (!WindowShouldClose()) {
-		simulation.update(particles);
+		simulation.update();
 		BeginDrawing();
 			ClearBackground(BLACK);
 			DrawText("Rocket Simulator v0.1", 10, 10, 25, WHITE);
 			DrawFPS(10, 45);
-			drawParticles(particles);
+			DrawLine(0, getHeight() - 50, getWidth(), getHeight() - 50, WHITE);
+			drawParticles(simulation.getParticles());
 		EndDrawing();
 	}
 }
